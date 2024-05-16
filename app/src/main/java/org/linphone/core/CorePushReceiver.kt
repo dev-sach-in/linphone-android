@@ -22,6 +22,7 @@ package org.linphone.core
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import org.linphone.LinphoneApplication
 import org.linphone.LinphoneApplication.Companion.ensureCoreExists
 import org.linphone.core.tools.Log
 
@@ -29,5 +30,7 @@ class CorePushReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         ensureCoreExists(context.applicationContext, true)
         Log.i("[Push Notification] Push notification has been received in broadcast receiver")
+        LinphoneApplication.coreContext.notificationsManager.startForeground()
+        LinphoneApplication.coreContext.core.refreshRegisters()
     }
 }
