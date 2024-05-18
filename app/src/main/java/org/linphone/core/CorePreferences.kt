@@ -30,7 +30,6 @@ import java.security.KeyStoreException
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.compatibility.Compatibility
 import org.linphone.core.tools.Log
-import org.linphone.utils.LinphoneUtils
 
 class CorePreferences constructor(private val context: Context) {
     private var _config: Config? = null
@@ -477,7 +476,7 @@ class CorePreferences constructor(private val context: Context) {
 
     // Will prevent user adding contact and editing / removing existing contacts
     val readOnlyNativeContacts: Boolean
-        get() = config.getBool("app", "read_only_native_address_book", false)
+        get() = config.getBool("app", "read_only_native_address_book", true)
 
     // Will hide the contacts selector to allow listing all contacts, even those without a SIP address
     val onlyShowSipContactsList: Boolean
@@ -534,7 +533,7 @@ class CorePreferences constructor(private val context: Context) {
     /* Default values related */
 
     val defaultDomain: String
-        get() = config.getString("app", "default_domain", "pbx2.telxio.com.sg")!!
+        get() = config.getString("app", "default_domain", "pbx2.telxio.com.sg:4144")!!
 
     val defaultRlsUri: String
         get() = config.getString("sip", "rls_uri", "sips:rls@pbx2.telxio.com.sg")!!
@@ -542,7 +541,7 @@ class CorePreferences constructor(private val context: Context) {
     val debugPopupCode: String
         get() = config.getString("app", "debug_popup_magic", "#1234#")!!
 
-    // If there is more participants than this value in a conference, force ActiveSpeaker layout
+    // If there is more participants than this value in a conference, force ActiveSpeaker layout.
     val maxConferenceParticipantsForMosaicLayout: Int
         get() = config.getInt("app", "conference_mosaic_layout_max_participants", 6)
 
@@ -599,11 +598,7 @@ class CorePreferences constructor(private val context: Context) {
         get() = config.getBool("app", "side_menu_recordings", false)
 
     val showScheduledConferencesInSideMenu: Boolean
-        get() = config.getBool(
-            "app",
-            "side_menu_conferences",
-            LinphoneUtils.isRemoteConferencingAvailable()
-        )
+        get() = config.getBool("app", "side_menu_conferences", false)
 
     val showAboutInSideMenu: Boolean
         get() = config.getBool("app", "side_menu_about", true)
@@ -617,10 +612,10 @@ class CorePreferences constructor(private val context: Context) {
         get() = config.getBool("app", "allow_dtls_transport", false)
 
     val showAccountSettings: Boolean
-        get() = config.getBool("app", "settings_accounts", true)
+        get() = config.getBool("app", "settings_accounts", false)
 
     val showTunnelSettings: Boolean
-        get() = config.getBool("app", "settings_tunnel", true)
+        get() = config.getBool("app", "settings_tunnel", false)
 
     val showAudioSettings: Boolean
         get() = config.getBool("app", "settings_audio", true)
@@ -635,10 +630,10 @@ class CorePreferences constructor(private val context: Context) {
         get() = config.getBool("app", "settings_chat", !disableChat)
 
     val showNetworkSettings: Boolean
-        get() = config.getBool("app", "settings_network", true)
+        get() = config.getBool("app", "settings_network", false)
 
     val showContactsSettings: Boolean
-        get() = config.getBool("app", "settings_contacts", true)
+        get() = config.getBool("app", "settings_contacts", false)
 
     val showAdvancedSettings: Boolean
         get() = config.getBool("app", "settings_advanced", true)
@@ -647,7 +642,7 @@ class CorePreferences constructor(private val context: Context) {
         get() = config.getBool(
             "app",
             "settings_conferences",
-            LinphoneUtils.isRemoteConferencingAvailable()
+            false
         )
 
     /* Assets stuff */
