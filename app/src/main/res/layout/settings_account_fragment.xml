@@ -80,7 +80,8 @@
                     linphone:subtitle="@{@string/account_settings_user_id_summary}"
                     linphone:listener="@{viewModel.userIdListener}"
                     linphone:defaultValue="@{viewModel.userId}"
-                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_PERSON_NAME}"/>
+                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_PERSON_NAME}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
@@ -96,7 +97,8 @@
                     linphone:subtitle="@{@string/account_settings_domain_summary}"
                     linphone:listener="@{viewModel.domainListener}"
                     linphone:defaultValue="@{viewModel.domain}"
-                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS}"/>
+                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
@@ -161,21 +163,24 @@
                     linphone:title="@{@string/account_settings_transport_title}"
                     linphone:listener="@{viewModel.transportListener}"
                     linphone:selectedIndex="@{viewModel.transportIndex}"
-                    linphone:labels="@{viewModel.transportLabels}"/>
+                    linphone:labels="@{viewModel.transportLabels}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
                     linphone:title="@{@string/account_settings_proxy_title}"
                     linphone:listener="@{viewModel.proxyListener}"
                     linphone:defaultValue="@{viewModel.proxy}"
-                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_URI}"/>
+                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_URI}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/account_settings_outbound_proxy_title}"
                     linphone:subtitle="@{@string/account_settings_outbound_proxy_summary}"
                     linphone:listener="@{viewModel.outboundProxyListener}"
-                    linphone:checked="@={viewModel.outboundProxy}"/>
+                    linphone:checked="@={viewModel.outboundProxy}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
@@ -194,7 +199,8 @@
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/account_settings_avpf_title}"
                     linphone:listener="@{viewModel.avpfListener}"
-                    linphone:checked="@={viewModel.avpf}"/>
+                    linphone:checked="@={viewModel.avpf}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
@@ -203,7 +209,8 @@
                     linphone:listener="@{viewModel.avpfRrIntervalListener}"
                     linphone:defaultValue="@{viewModel.avpfRrInterval.toString()}"
                     linphone:inputType="@{InputType.TYPE_CLASS_NUMBER}"
-                    linphone:enabled="@{viewModel.avpf}"/>
+                    linphone:enabled="@{viewModel.avpf}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
@@ -219,47 +226,54 @@
                     linphone:subtitle="@{@string/account_settings_prefix_summary}"
                     linphone:listener="@{viewModel.prefixListener}"
                     linphone:defaultValue="@{viewModel.prefix}"
-                    linphone:inputType="@{InputType.TYPE_CLASS_NUMBER}"/>
+                    linphone:inputType="@{InputType.TYPE_CLASS_NUMBER}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/account_settings_apply_prefix_for_calls_title}"
                     linphone:subtitle="@{@string/account_settings_apply_prefix_for_calls_summary}"
                     linphone:listener="@{viewModel.dialPrefixListener}"
-                    linphone:checked="@={viewModel.dialPrefix}"/>
+                    linphone:checked="@={viewModel.dialPrefix}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/account_settings_escape_plus_title}"
                     linphone:listener="@{viewModel.escapePlusListener}"
-                    linphone:checked="@={viewModel.escapePlus}"/>
+                    linphone:checked="@={viewModel.escapePlus}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
                     linphone:title="@{@string/account_setting_conference_factory_address}"
                     linphone:listener="@{viewModel.conferenceFactoryUriListener}"
                     linphone:defaultValue="@{viewModel.conferenceFactoryUri}"
-                    linphone:inputType="@{InputType.TYPE_CLASS_TEXT}"/>
+                    linphone:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
                     linphone:title="@{@string/account_setting_audio_video_conference_factory_address}"
                     linphone:listener="@{viewModel.audioVideoConferenceFactoryUriListener}"
                     linphone:defaultValue="@{viewModel.audioVideoConferenceFactoryUri}"
-                    linphone:inputType="@{InputType.TYPE_CLASS_TEXT}"/>
+                    linphone:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
                     linphone:title="@{@string/account_setting_end_to_end_encryption_keys_server_url}"
                     linphone:listener="@{viewModel.limeServerUrlListener}"
                     linphone:defaultValue="@{viewModel.limeServerUrl}"
-                    linphone:inputType="@{InputType.TYPE_CLASS_TEXT}"/>
+                    linphone:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/account_setting_disable_bundle_mode_title}"
                     linphone:listener="@{viewModel.disableBundleModeListener}"
-                    linphone:checked="@={viewModel.disableBundleMode}"/>
+                    linphone:checked="@={viewModel.disableBundleMode}"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 

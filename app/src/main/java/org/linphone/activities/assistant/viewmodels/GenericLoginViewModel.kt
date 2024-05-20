@@ -24,6 +24,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.linphone.LinphoneApplication.Companion.coreContext
+import org.linphone.LinphoneApplication.Companion.corePreferences
 import org.linphone.core.*
 import org.linphone.core.tools.Log
 import org.linphone.utils.Event
@@ -87,7 +88,8 @@ class GenericLoginViewModel(private val accountCreator: AccountCreator) : ViewMo
     }
 
     init {
-        transport.value = TransportType.Tls
+        transport.value = TransportType.Udp
+        domain.value = corePreferences.defaultDomain
 
         loginEnabled.value = false
         loginEnabled.addSource(username) {
@@ -153,7 +155,6 @@ class GenericLoginViewModel(private val accountCreator: AccountCreator) : ViewMo
 
     private fun isLoginButtonEnabled(): Boolean {
         return username.value.orEmpty().isNotEmpty() &&
-            domain.value.orEmpty().isNotEmpty() &&
             password.value.orEmpty().isNotEmpty()
     }
 }
