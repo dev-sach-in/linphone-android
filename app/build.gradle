@@ -7,7 +7,7 @@ plugins {
 }
 
 def appVersionName = "5.3.0"
-def appVersionCode = 52015
+def appVersionCode = 52016
 
 def packageName = "in.devsach.phone"
 
