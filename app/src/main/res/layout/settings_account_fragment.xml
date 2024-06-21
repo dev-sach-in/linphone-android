@@ -80,7 +80,8 @@
                     linphone:subtitle="@{@string/account_settings_user_id_summary}"
                     linphone:listener="@{viewModel.userIdListener}"
                     linphone:defaultValue="@{viewModel.userId}"
-                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_PERSON_NAME}"/>
+                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_PERSON_NAME}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"
@@ -96,7 +97,8 @@
                     linphone:subtitle="@{@string/account_settings_domain_summary}"
                     linphone:listener="@{viewModel.domainListener}"
                     linphone:defaultValue="@{viewModel.domain}"
-                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS}"/>
+                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS}"
+                    android:visibility="gone"/>
 
                 <include
                     layout="@layout/settings_widget_text"

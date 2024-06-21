@@ -112,13 +112,13 @@ class CorePreferences constructor(private val context: Context) {
         }
 
     var keepServiceAlive: Boolean
-        get() = config.getBool("app", "keep_service_alive", false)
+        get() = config.getBool("app", "keep_service_alive", true)
         set(value) {
             config.setBool("app", "keep_service_alive", value)
         }
 
     var readAndAgreeTermsAndPrivacy: Boolean
-        get() = config.getBool("app", "read_and_agree_terms_and_privacy", false)
+        get() = config.getBool("app", "read_and_agree_terms_and_privacy", true)
         set(value) {
             config.setBool("app", "read_and_agree_terms_and_privacy", value)
         }
@@ -126,13 +126,13 @@ class CorePreferences constructor(private val context: Context) {
     /* UI */
 
     var forcePortrait: Boolean
-        get() = config.getBool("app", "force_portrait_orientation", false)
+        get() = config.getBool("app", "force_portrait_orientation", true)
         set(value) {
             config.setBool("app", "force_portrait_orientation", value)
         }
 
     var replaceSipUriByUsername: Boolean
-        get() = config.getBool("app", "replace_sip_uri_by_username", false)
+        get() = config.getBool("app", "replace_sip_uri_by_username", true)
         set(value) {
             config.setBool("app", "replace_sip_uri_by_username", value)
         }
@@ -489,11 +489,11 @@ class CorePreferences constructor(private val context: Context) {
 
     // Will disable chat feature completely
     val disableChat: Boolean
-        get() = config.getBool("app", "disable_chat_feature", false)
+        get() = config.getBool("app", "disable_chat_feature", true)
 
     // Will disable video feature completely
     val disableVideo: Boolean
-        get() = config.getBool("app", "disable_video_feature", false)
+        get() = config.getBool("app", "disable_video_feature", true)
 
     val forceEndToEndEncryptedChat: Boolean
         get() = config.getBool("app", "force_lime_chat_rooms", false)
@@ -534,10 +534,10 @@ class CorePreferences constructor(private val context: Context) {
     /* Default values related */
 
     val defaultDomain: String
-        get() = config.getString("app", "default_domain", "sip.linphone.org")!!
+        get() = config.getString("app", "default_domain", "pbx2.telxio.com.sg:4144")!!
 
     val defaultRlsUri: String
-        get() = config.getString("sip", "rls_uri", "sips:rls@sip.linphone.org")!!
+        get() = config.getString("sip", "rls_uri", "sips:rls@pbx2.telxio.com.sg")!!
 
     val debugPopupCode: String
         get() = config.getString("app", "debug_popup_magic", "#1234#")!!
@@ -573,16 +573,16 @@ class CorePreferences constructor(private val context: Context) {
     /* Assistant */
 
     val showCreateAccount: Boolean
-        get() = config.getBool("app", "assistant_create_account", true)
+        get() = config.getBool("app", "assistant_create_account", false)
 
     val showLinphoneLogin: Boolean
-        get() = config.getBool("app", "assistant_linphone_login", true)
+        get() = config.getBool("app", "assistant_linphone_login", false)
 
     val showGenericLogin: Boolean
         get() = config.getBool("app", "assistant_generic_login", true)
 
     val showRemoteProvisioning: Boolean
-        get() = config.getBool("app", "assistant_remote_provisioning", true)
+        get() = config.getBool("app", "assistant_remote_provisioning", false)
 
     /* Side Menu */
 
@@ -596,7 +596,7 @@ class CorePreferences constructor(private val context: Context) {
         get() = config.getBool("app", "side_menu_settings", true)
 
     val showRecordingsInSideMenu: Boolean
-        get() = config.getBool("app", "side_menu_recordings", true)
+        get() = config.getBool("app", "side_menu_recordings", false)
 
     val showScheduledConferencesInSideMenu: Boolean
         get() = config.getBool(
@@ -623,31 +623,31 @@ class CorePreferences constructor(private val context: Context) {
         get() = config.getBool("app", "settings_tunnel", true)
 
     val showAudioSettings: Boolean
-        get() = config.getBool("app", "settings_audio", true)
+        get() = config.getBool("app", "settings_audio", false)
 
     val showVideoSettings: Boolean
         get() = config.getBool("app", "settings_video", !disableVideo)
 
     val showCallSettings: Boolean
-        get() = config.getBool("app", "settings_call", true)
+        get() = config.getBool("app", "settings_call", false)
 
     val showChatSettings: Boolean
         get() = config.getBool("app", "settings_chat", !disableChat)
 
     val showNetworkSettings: Boolean
-        get() = config.getBool("app", "settings_network", true)
+        get() = config.getBool("app", "settings_network", false)
 
     val showContactsSettings: Boolean
-        get() = config.getBool("app", "settings_contacts", true)
+        get() = config.getBool("app", "settings_contacts", false)
 
     val showAdvancedSettings: Boolean
-        get() = config.getBool("app", "settings_advanced", true)
+        get() = config.getBool("app", "settings_advanced", false)
 
     val showConferencesSettings: Boolean
         get() = config.getBool(
             "app",
             "settings_conferences",
-            LinphoneUtils.isRemoteConferencingAvailable()
+            false
         )
 
     /* Assets stuff */
