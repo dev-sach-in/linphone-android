@@ -88,7 +88,7 @@ class GenericLoginViewModel(private val accountCreator: AccountCreator) : ViewMo
 
     init {
         transport.value = TransportType.Udp
-        domain.value = "pbx2.telxio.com.sg:4144"
+        domain.value = "pbx2.telxio.com.sg:4144";
 
         loginEnabled.value = false
         loginEnabled.addSource(username) {
