@@ -7,9 +7,9 @@ plugins {
 }
 
 def appVersionName = "5.3.0"
-def appVersionCode = 52000
+def appVersionCode = 5200010
 
-def packageName = "org.linphone"
+def packageName = "in.devsach.phone"
 
 def firebaseAvailable = new File(projectDir.absolutePath +'/google-services.json').exists()
 
